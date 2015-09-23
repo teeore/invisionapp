@@ -13,11 +13,100 @@ body {
     font-family: $font-stack;
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+%no-outline {
+    outline: none;
+}
+
+img {
+    @extend %no-outline;
+}
+
+a:focus {
+    @extend %no-outline;
+}
+
+input { 
+    &:focus {
+     @extend %no-outline;
+    }
+    @extend %no-outline;
+}
+
 header {
-
+    height: 60px;
+    background-color: #000;
 }
 
-footer {
-	
+.header-right {
+    float: right;
+    margin-right: 5px;
+    width: 330px;
+    & div {
+        float: left;
+        margin-left: 10px;
+    }
+    .profile-avatar {
+        position: relative;
+        ul {
+            @include border-radius(3px);
+            border: 1px solid #F3F1F1;
+            list-style: none;
+            width: 100px;
+            position: absolute;
+            top: 54px;
+            right: 0px;
+            display: none;
+            &:after {
+                content: "";
+                clear: both;
+                display: block;
+            }
+            li {
+                float: none;
+                background-color: #F3F1F1;
+                border-bottom: 1px solid #EAE6E6;
+                position: relative;
+                padding: 8px;
+                a {
+                    color: #969696;
+                    text-decoration: none;
+                    font-size: 13px;
+                }
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+        &:hover ul {
+            display: block;
+        }
+    }
 }
+
+.logo {
+    width: 163px;
+    height: 59px;
+    float: left;
+}
+
+.searchbox {
+    input {
+        height: 23px;
+        width: 190px;
+        margin-top: 15px;
+        border: 1px solid #4E4646;
+        padding: 2px 5px;
+        background: transparent url('../images/search-icon.png') no-repeat center right;
+        @include border-radius(5px);
+        &:focus {
+            @extend %no-outline;
+        }
+    }
+}
+
 

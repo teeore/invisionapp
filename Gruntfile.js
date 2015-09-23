@@ -122,12 +122,16 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         src: ['<%= config.app %>/index.html'],
-        ignorePath: /^(\.\.\/)*\.\./
+        ignorePath: /^(\.\.\/)*\.\./,
+        devDependencies: true,
+        dependencies: true
       },
-      sass: {
-        src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
-        ignorePath: /^(\.\.\/)+/
-      }
+      // sass: {
+      //   src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+      //   ignorePath: /^(\.\.\/)+/,
+      //   devDependencies: true,
+      //   dependencies: true
+      // }
     },
 
     // Renames files for browser caching purposes

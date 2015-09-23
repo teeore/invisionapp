@@ -1,9 +1,65 @@
-// bower:scss
-// endbower
+/*********************
+Variables
+*********************/
 
-body {
-  background: #fafafa;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #333;
+$light-gray: 1px solid #ccc;
+$font-stack: "Open Sans",
+sans-serif;
+$main-color: #444;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$green: #2faf90;
+
+/*********************
+Mixins
+*********************/
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
 }
 
+@mixin placeholder($color, $opacity) {
+    ::-webkit-input-placeholder {
+        color: $color;
+        opacity: $opacity;
+    }
+    :-moz-placeholder {
+        color: $color;
+        opacity: $opacity;
+    }
+    ::-moz-placeholder {
+        color: $color;
+        opacity: $opacity;
+    }
+    :-ms-input-placeholder {
+        color: $color;
+        opacity: $opacity;
+    }
+}
+
+@mixin centerdiv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/*********************
+Media Queries
+*********************/
+
+@mixin tablet {
+    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop-width}) {
+        @content;
+    }
+}

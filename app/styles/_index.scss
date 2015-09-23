@@ -1,0 +1,25 @@
+ .hero {
+    width: 100%;
+    height: 425px;
+    background: transparent url('../images/hero-bg.jpg') no-repeat center right;
+    position: relative;
+ }
+
+ .status {
+ 	@include centerdiv;
+ 	width: 50%;
+ 	height: 155px;	
+ 	background-color: $green;
+ 	opacity: 0.6;
+ 	&-msg {
+ 		background-color: transparent;
+ 		height: 70px;	
+ 		width: 90%;
+ 		border: 0;
+ 		font-size: 2.8em;
+    	color: #DCDCDA;
+ 		margin-top: 5%;
+ 		margin-left: 5%;
+ 	}
+ 	@include placeholder(#fff, 0.6);
+ }
