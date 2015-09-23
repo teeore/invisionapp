@@ -1,0 +1,35 @@
+/*********************
+Variables
+*********************/
+
+
+$light-gray: 1px solid #ccc;
+$font-stack: "Open Sans",sans-serif;
+$dark: #444;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+/*********************
+Mixins
+*********************/
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+
+//media queries
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}

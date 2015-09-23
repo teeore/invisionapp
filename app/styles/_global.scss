@@ -1,0 +1,23 @@
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    @extend html;
+    font-size: 12px;
+    color: $main-color;
+    height: 100%;
+    font-family: $font-stack;
+}
+
+header {
+
+}
+
+footer {
+	
+}
+
