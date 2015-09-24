@@ -8,6 +8,8 @@
  
  .content {
      width: 600px;
+     height: 100%;
+     margin: 0 auto 200px;
  }
  
  .status {
@@ -57,30 +59,114 @@
  }
  
  .content-tab {
-     position: absolute;
-     left: 50%;
-     bottom: 13px;
-     transform: translate(-50%, -50%);
+     // position: absolute;
+     // left: 50%;
+     // bottom: 13px;
+     // transform: translate(-50%, -50%);
+     // width: 600px;
+     position: relative;
      width: 600px;
+     height: 50px;
+     margin: -37px auto 0;
      ul {
          list-style: none;
+         height: 63%;
          li {
              float: left;
              margin-right: 70px;
+             height: 100%;
+             border-bottom: 5px solid $green;
+             &:focus {
+                 border-bottom: 5px solid $green;
+             }
              a {
                  text-transform: uppercase;
                  text-decoration: none;
                  color: #fff;
                  font-weight: 400;
-                 opacity: 0.6;
+                 opacity: 0.7;
                  font-size: 14px;
+                 height: 100%;
                  &:active {
-                 	opacity: 0.8;
+                     opacity: 0.8;
                  }
                  &:focus {
-                 	opacity: 0.8;
+                     opacity: 0.8;
                  }
              }
          }
      }
+ }
+ 
+ %posts {
+     border: $light-gray;
+     border-radius: 5px;
+     position: relative;
+     padding: 23px;
+     overflow: auto;
+     a {
+         color: #BEC3C9;
+         text-decoration: none;
+     }
+ }
+ 
+ .posts {
+     @extend %posts;
+ }
+ 
+ .post {
+     &-pic {
+         float: left;
+         width: 45px;
+     }
+     &-msg-wrapper {
+         float: left;
+         width: 84%;
+         margin-left: 17px;
+     }
+     &-msg {
+         font-size: 14px;
+         line-height: 1.6em;
+         color: #ADA8A8;
+         padding-bottom: 13px;
+     }
+     &-name {
+         font-size: 15px;
+         color: #7B7979;
+         padding-bottom: 7px;
+     }
+     &-time {
+         color: #BFBDB3;
+     }
+ }
+ 
+ .post-icons {
+     position: absolute;
+     right: 20px;
+     ul {
+         list-style: none;
+         li {
+             float: left;
+             margin-left: 15px;
+         }
+     }
+ }
+ 
+ .comments {
+     @extend %posts;
+     border-top: 0;
+     border-radius: 0;
+     background-color: #f9fafb;
+     .reply {
+         border: $light-gray;
+         width: 97%;
+         padding: 8px;
+         font-size: 14px;
+     }
+ }
+ 
+ .image-post {
+     width: 600px;
+     height: 314px;
+     background-color: #000;
  }

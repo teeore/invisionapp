@@ -1,0 +1,51 @@
+{
+    "post1": {
+        "avatar": "images/avatar1.jpg",
+        "name": "Sam Soffes",
+        "msg": "How to Get Inspired: the Right Way - Designmodo bit.ly/1hqgbQA Good stuff from @designmodo!",
+        "image": "",
+        "video": "",
+        "time": "3m",
+        "comments": [{
+            "avatar": "images/avatar1.jpg",
+            "name": "Sam Soffes",
+            "msg": "How to Get Inspired: the Right Way - Designmodo bit.ly/1hqgbQA Good stuff from @designmodo!"
+        }, {
+            "avatar": "images/avatar1.jpg",
+            "name": "Sam Soffes",
+            "msg": "How to Get Inspired: the Right Way - Designmodo bit.ly/1hqgbQA Good stuff from @designmodo!"
+        }]
+    },
+    "post2": {
+        "avatar": "images/avatar2.jpg",
+        "name": "Meg Robichaud",
+        "msg": "My view this morning is simply beautiful... instagram.com/p/mV0PUrHRwQ/",
+        "image": "images/img01.jpg",
+        "video": "",
+        "time": "25m"
+    },
+    "post3": {
+        "avatar": "images/avatar3.jpg",
+        "name": "Keremt Suer",
+        "msg": "8 Apps to Turn Your Pipe Dreams Into Prototypes on.mash.to/1oubyu8",
+        "image": "",
+        "video": "",
+        "time": "50m"
+    },
+    "post4": {
+        "avatar": "images/avatar4.jpg",
+        "name": "Liang Shi",
+        "msg": "How to get animations out of your head. http://bit.ly/1q7BngO  Funny and useful.",
+        "image": "",
+        "video": "",
+        "time": "1h"
+    },
+    "post5": {
+        "avatar": "images/avatar5.jpg",
+        "name": "Vitor Leal",
+        "msg": "You have to see this bike. It will make your daily commute a absolute joy ride! vimeo.com/p/mV0PUrHRwQ/",
+        "image": "",
+        "video": "images/img02.jpg",
+        "time": "1h"
+    }
+}
