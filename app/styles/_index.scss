@@ -59,11 +59,6 @@
  }
  
  .content-tab {
-     // position: absolute;
-     // left: 50%;
-     // bottom: 13px;
-     // transform: translate(-50%, -50%);
-     // width: 600px;
      position: relative;
      width: 600px;
      height: 50px;
@@ -100,7 +95,6 @@
  
  %posts {
      border: $light-gray;
-     border-radius: 5px;
      position: relative;
      padding: 23px;
      overflow: auto;
@@ -112,6 +106,14 @@
  
  .posts {
      @extend %posts;
+     border-bottom: none;
+     &:first-child {
+         @include border-radius(5px 5px 0 0);
+     }
+     &:last-child {
+         @include border-radius(0 0 5px 5px);
+         border-bottom: $light-gray;
+     }
  }
  
  .post {
@@ -154,8 +156,7 @@
  
  .comments {
      @extend %posts;
-     border-top: 0;
-     border-radius: 0;
+     border-bottom: 0;
      background-color: #f9fafb;
      .reply {
          border: $light-gray;
@@ -165,10 +166,11 @@
      }
  }
  
-  .comments-wrapper {
-  	display: none;
-  }
-  
+ .comments-wrapper {
+     border: 0;
+     display: none;
+ }
+ 
  .image-post {
      width: 600px;
      height: 314px;

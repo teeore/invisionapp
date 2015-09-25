@@ -12,9 +12,9 @@ body {
 }
 
 .container {
-    width: 100%; 
-    height: 100%; 
-        position: relative;
+    width: 100%;
+    height: 100%;
+    position: relative;
     min-height: 100%;
 }
 
@@ -39,9 +39,9 @@ a:focus {
     @extend %no-outline;
 }
 
-input { 
+input {
     &:focus {
-     @extend %no-outline;
+        @extend %no-outline;
     }
     @extend %no-outline;
 }
@@ -111,9 +111,9 @@ header {
         float: left;
     }
     &-text {
-    margin-top: 22px;
-    color: #717580;
-    font-size: 16px;
+        margin-top: 22px;
+        color: #717580;
+        font-size: 16px;
     }
 }
 
@@ -135,12 +135,39 @@ header {
         }
     }
 }
- footer {
-    width: 100%;
-    padding-top: 18px;
-    height: 200px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
- }
 
+%footer-text {
+        float: left;
+    text-transform: uppercase;
+    padding: 5px 20px;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+footer {
+    border-top: 1px solid #ECECEC;
+    padding-top: 20px;
+    width: 100%;
+    height: 200px;
+    ul {
+        list-style: none;
+        li {
+            @extend %footer-text;
+            color: #868484;
+            a {
+                @extend %footer-text;
+                    color: #2faf90;
+                    padding: 0;
+                    text-decoration: none;
+            }
+            span {
+                color: #ECECEA;
+            }
+        }
+    }
+}
+
+    .footer-inner {
+        width: 515px;
+        margin: 0 auto;
+    }
