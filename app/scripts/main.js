@@ -7,11 +7,9 @@ var socialApp = {
 
     getPosts: function() {
         $.getJSON("data/posts.json", function(data) {
-            console.log(data)
-
+            // console.log(data)
             socialApp.loadAllPosts(data);
         })
-
     },
 
     loadAllPosts: function(data) {
@@ -76,7 +74,16 @@ var socialApp = {
     },
 
     callModal: function() {
-
+        $('.chat-icon a').click(function(e) {
+            $('.container, footer').addClass('blur');
+            $('.modal, .modal-dialog').show();
+            e.preventDefault();
+        });
+        $('.close-modal').on('click', function(e) {
+            $('.container, footer').removeClass('blur');
+            $('.modal, .modal-dialog').hide();
+            e.preventDefault();
+        });
     }
 
 };

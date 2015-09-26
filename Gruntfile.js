@@ -39,7 +39,7 @@ module.exports = function(grunt) {
                 files: ['<%= config.app %>/styles/{,*/}*.css'],
                 tasks: ['newer:copy:styles']
             },
-             js: {
+            js: {
                 files: ['<%= config.app %>/scripts/*.js'],
                 options: {
                     livereload: '<%= connect.options.livereload %>'
@@ -132,12 +132,12 @@ module.exports = function(grunt) {
                 devDependencies: true,
                 dependencies: true
             },
-            // sass: {
-            //   src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
-            //   ignorePath: /^(\.\.\/)+/,
-            //   devDependencies: true,
-            //   dependencies: true
-            // }
+            sass: {
+              src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+              ignorePath: /^(\.\.\/)+/,
+              devDependencies: true,
+              dependencies: true
+            }
         },
 
         // Renames files for browser caching purposes

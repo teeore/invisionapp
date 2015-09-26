@@ -1,29 +1,117 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
-    <title>Invision Web App</title>
+    <title>Invision Web App - Settings</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="/favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container">
-
+        <header>
+            <a href="/">
+                <div class="logo">
+                    <span class="sprite-main sprite-logo"></span>
+                    <span class="logo-text">simply</span>
+                    <span class="logo-text social-text">social</span>
+                </div>
+            </a>
+            <div class="header-right">
+                <div class="chat-icon">
+                    <a href="#"><span class="sprite-main sprite-chat-icon"></span></a>
+                </div>
+                <div class="searchbox">
+                    <input type="text" class="form" id="searchform">
+                    <span class="sprite-main sprite-search-icon"></span>
+                </div>
+                <div class="profile-avatar">
+                    <a href="#"><img src="images/profile-avatar.png"></a>
+                    <ul>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Followers</a></li>
+                        <li><a href="#">Following</a></li>
+                        <li><a href="settings.html">Settings</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="content" id="settings-content">
+            <h2>Settings</h2>
+            <div class="settings-account">
+                <div class="settings-img"></div>
+                <div class="credentials">
+                    <form id="settings-form">
+                        <input type="text" id="settings-name">
+                        <input type="email" id="settings-email">
+                        <input type="password" id="settings-pswd">
+                    </form>
+                </div>
+            </div>
+            <!-- notifications -->
+            <div class="settings-notifications">
+                <h4>Notifications</h4>
+                <ul>
+                    <li>
+                        <span class="sprite-settings sprite-toggle-on"></span> email me when my posts are marked as favorites
+                    </li>
+                    <li>
+                        <span class="sprite-settings sprite-toggle-on"></span> email me when I'm mentioned
+                    </li>
+                    <li>
+                        <span class="sprite-settings sprite-toggle-on"></span> email me when I get a reply
+                    </li>
+                    <li>
+                        <span class="sprite-settings sprite-toggle-on"></span> email me when someone follows me
+                    </li>
+                </ul>
+            </div>
+            <!-- privacy -->
+             <div class="settings-privacy">
+                <h4>Privacy</h4>
+                <ul>
+                    <li>
+                    <span class="sprite-settings sprite-privacy-on"></span>
+                        allow anyone to tag me
+                    </li>
+                    <li>
+                    <span class="sprite-settings sprite-privacy-on"></span>
+                        only allow people I follow to tag me
+                    </li>
+                    <li>
+                    <span class="sprite-settings sprite-privacy-on"></span>
+                        don't allow anyone to tag me
+                    </li>
+                    <li>
+                    <span class="sprite-settings sprite-privacy-on"></span>
+                        add a location to my posts
+                    </li>
+                    <li>
+                    <span class="sprite-settings sprite-privacy-on"></span>
+                        let others find me by my email address
+                    </li>
+                    <li>
+                    <span class="sprite-settings sprite-privacy-on"></span>
+                        tailor ads based on my information
+                    </li>
+                </ul>
+                </div>
+        </div>
     </div>
-
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <!-- endbower -->
-    <!-- endbuild -->  
-
+    <!-- endbuild -->
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
+</body>
 
-  </body>
 </html>

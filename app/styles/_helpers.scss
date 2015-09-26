@@ -3,7 +3,8 @@ Variables
 *********************/
 
 $light-gray: 1px solid #ECECEC;
-$font-stack: "Open Sans", sans-serif;
+$font-stack: "Open Sans",
+sans-serif;
 $main-color: #444;
 $tablet-width: 768px;
 $desktop-width: 1024px;
@@ -20,6 +21,7 @@ Mixins
     border-radius: $radius;
 }
 
+// change placeholder color
 @mixin placeholder($color, $opacity) {
     ::-webkit-input-placeholder {
         color: $color;
@@ -39,11 +41,34 @@ Mixins
     }
 }
 
+// center div
 @mixin centerdiv {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+// modal window 
+@mixin translate($x, $y) {
+    -webkit-transform: translate($x, $y);
+    -ms-transform: translate($x, $y);
+    transform: translate($x, $y);
+}
+
+@mixin transition($transition) {
+    -webkit-transition: $transition;
+    transition: $transition;
+}
+
+// blur 
+@mixin blur($val, $opacity) {
+    -webkit-filter: blur($val);
+    -moz-filter: blur($val);
+    -o-filter: blur($val);
+    -ms-filter: blur($val);
+    filter: blur($val);
+    opacity: $opacity;
 }
 
 
