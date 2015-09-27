@@ -54,8 +54,8 @@
     background-position: -110px -5px;
 }
 
-.sprite-other{
-    background-image: url(settings-sprite2.png);
+.sprite-other {
+    background-image: url(../images/settings-sprite2.png);
     background-repeat: no-repeat;
     display: block;
 }
@@ -64,20 +64,27 @@
     width: 25px;
     height: 25px;
     background-position: -5px -5px;
+    color: #444;
+    font-size: 30px;
+    text-decoration: none;
+    position: absolute;
+    right: -26px;
+    top: -29px;
 }
 
 .sprite-photo-icon-dark {
     width: 25px;
     height: 15px;
     background-position: -40px -5px;
+    float: left;
 }
 
 .sprite-video-icon-dark {
     width: 25px;
     height: 15px;
     background-position: -40px -30px;
+    float: left;
 }
-
 
 
 /*main sprite*/

@@ -169,7 +169,7 @@ header {
 .searchbox {
     position: relative;
     input {
-        height: 25px;
+        height: 28px;
         width: 190px;
         display: block;
         margin-top: 13px;
@@ -177,7 +177,7 @@ header {
         border: 1px solid #4E4646;
         padding: 2px 30px 2px 5px;
         box-sizing: border-box;
-        @include border-radius(5px);
+        @include border-radius(2px);
         &:focus {
             @extend %no-outline;
         }

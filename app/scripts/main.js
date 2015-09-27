@@ -91,29 +91,45 @@ var socialApp = {
             // function() {
             //     $(replyDiv).hide();
             // });
-            $(comments).toggle(function() {
-                if ($(comments).length) {
-                    if ($(replyDiv.length === 0)) {
+
+
+            $(comments).toggle();
+            // if ($(comments).length) {
+                    if ($(replyDiv).length === 0) {
                         $(comments).append(replyDiv);
-                    }
-                }
-            });
+                    } 
+                // }
 
         });
     },
 
     callModal: function() {
         $('.chat-icon a').click(function(e) {
+            socialApp.insertModal();
             $('html, body').scrollTop(0);
             $('.container, footer').addClass('blur');
-            $('.modal, .modal-dialog').show();
+            // $('.modal, .modal-dialog').show();
             e.preventDefault();
         });
+    },
+
+    insertModal: function() {
+        $.get('partial/modal.html', function(data) {
+            $('#modal-wrapper').append(data);
+            socialApp.removeModal();
+        });
+    },
+
+     removeModal: function() {
         $('.close-modal').on('click', function(e) {
+            $('#modal-wrapper').empty();
             $('.container, footer').removeClass('blur');
-            $('.modal, .modal-dialog').hide();
+
+            // $('.modal, .modal-dialog').hide();
             e.preventDefault();
         });
+
+           
     },
 
     updateSettings: function(data) {

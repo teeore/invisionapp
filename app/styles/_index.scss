@@ -57,9 +57,11 @@
      opacity: 0.6;
      padding-left: 5px;
      .modal-dialog & {
-         color: #A9A9A9;
+         color: #A2A2A2;
          text-decoration: none;
          float: left;
+         font-size: 14px;
+         margin-top: -2px;
      }
  }
  
@@ -170,7 +172,7 @@
  }
  
  .reply {
-    @extend .comments;
+     @extend .comments;
      border: $light-gray;
      width: 97%;
      padding: 8px;
