@@ -1,8 +1,21 @@
 var socialApp = {
 
     init: function() {
+        socialApp.getProfile();
         socialApp.getPosts();
         socialApp.callModal();
+    },
+
+    getProfile: function() {
+        $.getJSON('data/profile.json', function(data) {
+            var avatarImg = '<img src="' + data.avatar + '">';
+            var headerAvatar = '<a class="profilemenu" href="#">' + avatarImg + '</a>' +
+                '<span class = "sprite-main sprite-caret-down"></span>';
+            $('.profile-avatar').prepend(headerAvatar);
+            $('.settings-profile-pic').append(avatarImg);
+
+            socialApp.updateSettings(data);
+        });
     },
 
     getPosts: function() {
@@ -51,7 +64,7 @@ var socialApp = {
                         '</div> </div>';
                     var addComments = $('.comments-wrapper').append(commentTmpl);
                     $('.all-posts').append(addComments);
-                    // $('.comments:last-child').insertAfter('<div class="reply-comment"><input type="text" placeholder="Reply..." class="reply"></div>')
+
                 });
             }
 
@@ -67,14 +80,31 @@ var socialApp = {
     },
 
     showComments: function() {
-        $('.comments-text a').on('click', function(e){
-            $('.comments-wrapper').toggle();
+        var comments = $('.comments-wrapper');
+        var replyDiv = '<div class="reply-comment"><input type="text" placeholder="Reply..." class="reply"></div>';
+
+        $('.comments-text a').on('click', function(e) {
             e.preventDefault();
+            // $(comments).toggle(function(){
+            //     $(replyDiv).show();
+            // },
+            // function() {
+            //     $(replyDiv).hide();
+            // });
+            $(comments).toggle(function() {
+                if ($(comments).length) {
+                    if ($(replyDiv.length === 0)) {
+                        $(comments).append(replyDiv);
+                    }
+                }
+            });
+
         });
     },
 
     callModal: function() {
         $('.chat-icon a').click(function(e) {
+            $('html, body').scrollTop(0);
             $('.container, footer').addClass('blur');
             $('.modal, .modal-dialog').show();
             e.preventDefault();
@@ -84,6 +114,80 @@ var socialApp = {
             $('.modal, .modal-dialog').hide();
             e.preventDefault();
         });
+    },
+
+    updateSettings: function(data) {
+
+        // prepopulate name and email
+        $('#settings-name').val(data.name);
+        $('#settings-email').val(data.email);
+        $('#settings-pswd').val(data.pswd);
+
+
+        // change background if password is more than 6 characters
+        $('#settings-pswd').on('keypress', socialApp.pswdValidation)
+
+        // reset page on saving
+        $('#resetPage').click(function() {
+            socialApp.settingsReset();
+        });
+
+        socialApp.changePswd();
+        socialApp.toggleSettings();
+    },
+
+    pswdValidation: function() {
+        var settingsPswd = '#settings-pswd';
+        var pswdVal = $(settingsPswd).val();
+        if (pswdVal.length >= 5) {
+            $(this).addClass('validPswd');
+            $(this).prev('#pswdIcon')
+                .removeClass('sprite-pswd-icon')
+                .addClass('sprite-pswd-success-icon');
+        }
+    },
+
+    settingsReset: function() {
+        $('#settings-pswd')
+            .removeClass('validPswd sprite-pswd-success-icon')
+            .addClass('sprite-pswd-icon');
+    },
+
+    changePswd: function() {
+        $('#changePswd').click(function(e) {
+            $('#settings-pswd').prop('disabled', false);
+            $('#settings-pswd').val('').focus();
+            e.preventDefault();
+        });
+    },
+
+    toggleSettings: function() {
+        // toggle notifications
+        $('.settings-notifications span').click(function() {
+            if ($(this).hasClass('sprite-toggle-on')) {
+                $(this)
+                    .removeClass('sprite-toggle-on')
+                    .addClass('sprite-toggle-off')
+            } else {
+                $(this)
+                    .removeClass('sprite-toggle-off')
+                    .addClass('sprite-toggle-on')
+            }
+        });
+
+        // toggle privacy
+        $('.settings-privacy span').click(function() {
+            if ($(this).hasClass('sprite-privacy-on')) {
+                $(this)
+                    .removeClass('sprite-privacy-on')
+                    .addClass('sprite-privacy-off')
+            } else {
+                $(this)
+                    .removeClass('sprite-privacy-off')
+                    .addClass('sprite-privacy-on')
+            }
+        });
+
     }
 
 };

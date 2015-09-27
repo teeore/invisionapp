@@ -163,17 +163,18 @@
      @extend %posts;
      border-bottom: 0;
      background-color: #f9fafb;
-     .reply {
-         border: $light-gray;
-         width: 97%;
-         padding: 8px;
-         font-size: 14px;
+     &-wrapper {
+         border: 0;
+         display: none;
      }
  }
  
- .comments-wrapper {
-     border: 0;
-     display: none;
+ .reply {
+    @extend .comments;
+     border: $light-gray;
+     width: 97%;
+     padding: 8px;
+     font-size: 14px;
  }
  
  .image-post {

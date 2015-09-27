@@ -32,7 +32,7 @@
                     <span class="sprite-main sprite-search-icon"></span>
                 </div>
                 <div class="profile-avatar">
-                    <a href="#"><img src="images/profile-avatar.png"></a>
+                    <!-- insert from json -->
                     <ul>
                         <li><a href="#">Profile</a></li>
                         <li><a href="#">Followers</a></li>
@@ -44,13 +44,23 @@
         </header>
         <div class="content" id="settings-content">
             <h2>Settings</h2>
+            <h4>Account</h4>
             <div class="settings-account">
-                <div class="settings-img"></div>
+                <div class="settings-img">
+                    <div class="settings-profile-pic">
+                        <!-- update from profile.json -->
+                    </div>
+                    <a class="change-pic">Change</a>
+                </div>
                 <div class="credentials">
                     <form id="settings-form">
+                        <span class="sprite-settings sprite-name-icon"></span>
                         <input type="text" id="settings-name">
+                        <span class="sprite-settings sprite-email-icon"></span>
                         <input type="email" id="settings-email">
-                        <input type="password" id="settings-pswd">
+                        <span class="sprite-settings sprite-pswd-icon" id="pswdIcon"></span>
+                        <input type="password" id="settings-pswd" disabled>
+                        <a id="changePswd" href="">change</a>
                     </form>
                 </div>
             </div>
@@ -59,49 +69,89 @@
                 <h4>Notifications</h4>
                 <ul>
                     <li>
-                        <span class="sprite-settings sprite-toggle-on"></span> email me when my posts are marked as favorites
+                        <span class="sprite-settings sprite-toggle-on"></span> 
+                        <p>email me when my posts are marked as favorites</p>
                     </li>
                     <li>
-                        <span class="sprite-settings sprite-toggle-on"></span> email me when I'm mentioned
+                        <span class="sprite-settings sprite-toggle-on"></span> 
+                        <p>email me when I'm mentioned</p>
                     </li>
                     <li>
-                        <span class="sprite-settings sprite-toggle-on"></span> email me when I get a reply
+                        <span class="sprite-settings sprite-toggle-on"></span> 
+                        <p>email me when I get a reply</p>
                     </li>
                     <li>
-                        <span class="sprite-settings sprite-toggle-on"></span> email me when someone follows me
+                        <span class="sprite-settings sprite-toggle-on"></span> 
+                        <p>email me when someone follows me</p>
                     </li>
                 </ul>
             </div>
             <!-- privacy -->
-             <div class="settings-privacy">
+            <div class="settings-privacy">
                 <h4>Privacy</h4>
                 <ul>
                     <li>
-                    <span class="sprite-settings sprite-privacy-on"></span>
-                        allow anyone to tag me
+                        <span class="sprite-settings sprite-privacy-on"></span>
+                        <p>allow anyone to tag me</p>
                     </li>
                     <li>
-                    <span class="sprite-settings sprite-privacy-on"></span>
-                        only allow people I follow to tag me
+                        <span class="sprite-settings sprite-privacy-on"></span>
+                        <p>only allow people I follow to tag me</p>
                     </li>
                     <li>
-                    <span class="sprite-settings sprite-privacy-on"></span>
-                        don't allow anyone to tag me
+                        <span class="sprite-settings sprite-privacy-on"></span>
+                        <p>don't allow anyone to tag me</p>
                     </li>
                     <li>
-                    <span class="sprite-settings sprite-privacy-on"></span>
-                        add a location to my posts
+                        <span class="sprite-settings sprite-privacy-on"></span>
+                        <p>add a location to my posts</p>
                     </li>
                     <li>
-                    <span class="sprite-settings sprite-privacy-on"></span>
-                        let others find me by my email address
+                        <span class="sprite-settings sprite-privacy-on"></span>
+                        <p>let others find me by my email address</p>
                     </li>
                     <li>
-                    <span class="sprite-settings sprite-privacy-on"></span>
-                        tailor ads based on my information
+                        <span class="sprite-settings sprite-privacy-on"></span>
+                        <p>tailor ads based on my information</p>
                     </li>
                 </ul>
+            </div>
+            <!-- save -->
+            <div class="save-settings">
+                <a href="/" id="resetPage"> Save Changes</a>
+            </div>
+        </div>
+    </div>
+        <!-- modal window -->
+    <div class="modal" id="modal-one">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h2>Create new message</h2>
+                <!-- close button -->
+                <a href="#" class="btn-close close-modal">×</a>
+            </div>
+            <div class="modal-body">
+                <textarea id="modal-input"></textarea>
+            </div>
+            <div class="modal-footer">
+                <div class="status-add" id="modal-add">
+                    <div class="status-photo">
+                        <a href="#">
+                            <span class="sprite-main sprite-camera-icon"></span>
+                            <span class="add-text" id="modal-photo">Add Photo</span>
+                        </a>
+                    </div>
+                    <div class="status-video">
+                        <a href="#">
+                            <span class="sprite-main sprite-video-icon"></span>
+                            <span class="add-text" id="modal-photo">Add Video</span>
+                        </a>
+                    </div>
                 </div>
+                <div class="modal-btn">
+                    <a href="#" class="post-btn close-modal">Post</a>
+                </div>
+            </div>
         </div>
     </div>
     <!-- build:js(.) scripts/vendor.js -->

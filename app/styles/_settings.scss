@@ -8,7 +8,25 @@
         text-transform: uppercase;
     }
     ul {
-    	list-style: none;
+        list-style: none;
+    }
+}
+
+%setting-toggles {
+    span {
+        cursor: pointer;
+        display: inline-block;
+        position: absolute;
+        margin-top: 7px;
+    }
+    p {
+        display: inline-block;
+        font-size: 16px;
+        color: #8A8989;
+        margin-left: 83px;
+    }
+    li {
+        line-height: 15px;
     }
 }
 
@@ -21,31 +39,96 @@
         margin-top: 45px;
         height: 250px;
         border-bottom: 1px solid #E2E2E2;
+        position: relative;
+        @extend %setting-toggles;
     }
     &-privacy {
-    	 border-bottom: 1px solid #E2E2E2;
+        border-bottom: 1px solid #E2E2E2;
+        height: 350px;
+        margin-left: 10px;
+         @extend %setting-toggles;
+         p {
+            margin-left: 60px;
+         }
+         span {
+            margin-top: 8px;
+         }
     }
     &-img {
         float: left;
         width: 150px;
-    }
-    .credentials {
-        float: left;
-        width: 400px;
+        height: 210px;
+        img {
+            width: 96px;
+            height: 95px;
+        }
     }
 }
 
-#settings-form {
-    input {
-        display: block;
-        width: 60%;
-        height: 30px;
-        padding: 6px 12px;
-        margin-bottom: 16px;
-        font-size: 14px;
-        color: #555;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 4px;
+.credentials {
+    float: left;
+    width: 400px;
+    position: relative;
+    span {
+        position: absolute;
+        margin-top: 12px;
+        margin-left: 10px;
     }
+}
+
+.change-pic {
+    width: 92px;
+    text-align: center;
+    display: block;
+    padding: 5px;
+    border: 1px solid #C5C2C2;
+    box-sizing: border-box;
+    border-radius: 4px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+#settings {
+    &-form {
+        input {
+            display: block;
+            width: 380px;
+            height: 46px;
+            padding: 6px 12px 6px 40px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: #555;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    }
+}
+
+#settings-pswd {
+    padding-right: 80px !important;
+}
+
+#changePswd {
+    position: absolute;
+    bottom: 28px;
+    right: 44px;
+    text-decoration: none;
+    color: #ccc;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.save-settings {
+    margin-top: 50px;
+    a {
+        @extend %site-btns;
+        padding: 11px 25px;
+        font-size: 15px;
+    }
+}
+
+.validPswd {
+    border: 1px solid $green !important;
 }

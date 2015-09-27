@@ -74,19 +74,14 @@
     top: -37px;
 }
 
+
+
 .modal-btn {
     width: 42%;
     float: left;
     height: 30px;
-    a.post-btn {
-        background-color: $green;
-        @include border-radius(4px);
-        font-size: 14px;
-        margin-top: 4px;
-        display: inline-block;
-        padding: 6px 25px;
-        color: #fff;
-        text-decoration: none;
+    a {
+        @extend %site-btns;
     }
 }
 
