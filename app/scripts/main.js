@@ -20,9 +20,9 @@ var socialApp = {
 
     clipHeader: function() {
         $(window).scroll(function() {
-            $('.header-below').fadeIn('fast');
+            $('.header-below').show();
             if ($(window).scrollTop() == 0) {
-                $('.header-below').fadeOut('fast');
+                $('.header-below').hide();
             }
         });
     },
@@ -84,7 +84,6 @@ var socialApp = {
                         '</div> </div>';
                     var addComments = $('.comments-wrapper').append(commentTmpl);
                     $('.all-posts').append(addComments);
-
                 });
             }
 
@@ -99,7 +98,6 @@ var socialApp = {
                 });
             }
         });
-
     },
 
     expandComments: function() {
@@ -112,14 +110,13 @@ var socialApp = {
         $('.comments-text a').click(function() {
             if ($(this).hasClass('expand')) {
                 $(this).removeClass('expand').addClass('collapse');
-                $('.comments-wrapper').show()
+                $('.comments-wrapper').show();
+                $('.sprite-main').removeClass('sprite-caret-down').addClass('sprite-caret-up')
 
-                if(!$('#reply-wrapper').length) {
+                if (!$('#reply-wrapper').length) {
                     $('.comments-wrapper').append('<div id="reply-wrapper"></div>');
                     $('#reply-wrapper').html(replyDiv);
                 }
-
-                $('.sprite-main').removeClass('sprite-caret-down').addClass('sprite-caret-up')
             } else {
                 $(this).removeClass('collapse').addClass('expand');
                 $('.sprite-main').removeClass('sprite-caret-up').addClass('sprite-caret-down')
@@ -158,7 +155,7 @@ var socialApp = {
             $('html, body').scrollTop(0);
             $('.container, footer').addClass('blur');
             $('#img-wrapper')
-                .html('<div class="img-bg"><div class="img-content">' + img + '</div></div>');
+                .html('<div class="img-bg"><div class="img-content">' + img + '<div class="post-details"></div></div></div>');
             $('.post-details').append(postTmpl);
             e.preventDefault();
         });
@@ -235,9 +232,7 @@ var socialApp = {
                     .addClass('sprite-privacy-on')
             }
         });
-
     }
-
 };
 
 $(document).ready(function() {

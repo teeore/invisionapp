@@ -1,62 +1,37 @@
-%modal {
-     &:before {
-       @extend %modal-bg;
-    }
-    a {
-        text-decoration: none;
-    }
-}
-
-%modal-bg {
-     content: "";
-        background: rgba(0, 0, 0, .8);
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 999;
-}
-
-%modal-dialog {
-    @include centerdiv;
-        border-radius: 5px;
-        z-index: 9999;
-        background-color: #DEE1E6;
-        box-sizing: border-box;
-}
-
 .img-bg {
     &:before {
-         @extend %modal-bg;
+        @extend %modal-bg;
     }
 }
 
 .img-content {
-     @extend %modal-dialog;
-     background-color: transparent;
-      top: 15%;
+    @extend %modal-dialog;
+    background-color: transparent;
+    top: 15%;
 }
 
 .img-wrapper {
     width: 900px;
+    position: relative;
 }
 
 .post-details {
-     @include centerdiv;
+    position: absolute;
     z-index: 9999;
     background-color: #f9fafb;
+    margin-top: -4px;
+    width: 100%;
 }
 
 .modal {
-  &:before {
-     @extend %modal-bg;
-  }
+    &:before {
+        @extend %modal-bg;
+    }
 }
 
 .modal {
     &-dialog {
-         @extend %modal-dialog;
+        @extend %modal-dialog;
         top: 13%;
         min-width: 500px;
         width: 45%;

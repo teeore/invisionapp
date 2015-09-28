@@ -115,6 +115,34 @@ Placeholders
     }
 }
 
+%modal {
+     &:before {
+       @extend %modal-bg;
+    }
+    a {
+        text-decoration: none;
+    }
+}
+
+%modal-bg {
+     content: "";
+        background: rgba(0, 0, 0, .8);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 999;
+}
+
+%modal-dialog {
+    @include centerdiv;
+        border-radius: 5px;
+        z-index: 9999;
+        background-color: #DEE1E6;
+        box-sizing: border-box;
+}
+
 
 /*********************
 Media Queries

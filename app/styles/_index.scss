@@ -4,10 +4,6 @@
      background: transparent url('../images/hero-bg.jpg') no-repeat center center;
      position: relative;
      margin-top: 60px;
-     -webkit-background-size: cover;
-     -moz-background-size: cover;
-     -o-background-size: cover;
-     background-size: cover;
  }
  
  .content {
@@ -198,6 +194,6 @@
  .image-post {
      img {
          width: 600px;
-         height: 314px;
+         height: auto;
      }
  }
