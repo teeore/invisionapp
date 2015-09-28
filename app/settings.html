@@ -16,13 +16,13 @@
 <body>
     <div class="container">
         <header>
-            <a href="/">
-                <div class="logo">
+            <div class="logo">
+                <a href="/">
                     <span class="sprite-main sprite-logo"></span>
                     <span class="logo-text">simply</span>
                     <span class="logo-text social-text">social</span>
-                </div>
-            </a>
+                </a>
+            </div>
             <div class="header-right">
                 <div class="chat-icon">
                     <a href="#"><span class="sprite-main sprite-chat-icon"></span></a>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="profile-avatar">
                     <!-- insert from json -->
-                    <ul>
+                    <ul class="main-menu">
                         <li><a href="#">Profile</a></li>
                         <li><a href="#">Followers</a></li>
                         <li><a href="#">Following</a></li>
@@ -69,19 +69,19 @@
                 <h4>Notifications</h4>
                 <ul>
                     <li>
-                        <span class="sprite-settings sprite-toggle-on"></span> 
+                        <span class="sprite-settings sprite-toggle-on"></span>
                         <p>email me when my posts are marked as favorites</p>
                     </li>
                     <li>
-                        <span class="sprite-settings sprite-toggle-on"></span> 
+                        <span class="sprite-settings sprite-toggle-on"></span>
                         <p>email me when I'm mentioned</p>
                     </li>
                     <li>
-                        <span class="sprite-settings sprite-toggle-on"></span> 
+                        <span class="sprite-settings sprite-toggle-on"></span>
                         <p>email me when I get a reply</p>
                     </li>
                     <li>
-                        <span class="sprite-settings sprite-toggle-on"></span> 
+                        <span class="sprite-settings sprite-toggle-on"></span>
                         <p>email me when someone follows me</p>
                     </li>
                 </ul>
@@ -122,10 +122,8 @@
             </div>
         </div>
     </div>
-        
-     <!-- modal window inserted using ajax-->
+    <!-- modal window inserted using ajax-->
     <div id="modal-wrapper"></div>
-
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>

@@ -1,16 +1,37 @@
 var socialApp = {
 
     init: function() {
+        socialApp.activeTab();
+        socialApp.clipHeader();
         socialApp.getProfile();
         socialApp.getPosts();
         socialApp.callModal();
     },
 
+    activeTab: function() {
+        // highlight active tab
+        $('#post-tab').addClass('active-tab');
+        $('.content-tab ul li a').click(function() {
+            $('.content-tab ul li.active-tab').removeClass('active-tab');
+            $(this).closest('li').addClass('active-tab');
+            return false;
+        });
+    },
+
+    clipHeader: function() {
+        $(window).scroll(function() {
+            $('.header-below').fadeIn('fast');
+            if ($(window).scrollTop() == 0) {
+                $('.header-below').fadeOut('fast');
+            }
+        });
+    },
+
     getProfile: function() {
         $.getJSON('data/profile.json', function(data) {
             var avatarImg = '<img src="' + data.avatar + '">';
-            var headerAvatar = '<a class="profilemenu" href="#">' + avatarImg + '</a>' +
-                '<span class = "sprite-main sprite-caret-down"></span>';
+            var headerAvatar = '<a class="profilemenu" href="#">' + avatarImg +
+                '<span id="profile-caret" class = "sprite-main sprite-caret-down"></span></a>';
             $('.profile-avatar').prepend(headerAvatar);
             $('.settings-profile-pic').append(avatarImg);
 
@@ -43,11 +64,10 @@ var socialApp = {
 
             // add link to expand comments
             if (item.comments) {
-                var addExpandLink = '<div class = "comments-text"> <a href = "#"> Expand' +
-                    '<span class = "sprite-main sprite-caret-down"> </span></a>' +
-                    '</div>';
-                $('.posts').append(addExpandLink);
-                socialApp.showComments();
+                var addExpandLink = '<div class = "comments-text"> <a class="expand" href = "#"> Expand' +
+                    '<span class = "sprite-main sprite-caret-down"> </span></a></div>';
+                $('.post-msg-wrapper').append(addExpandLink);
+                socialApp.expandComments();
 
                 // insert comments
                 $.each(item.comments, function(i, comment) {
@@ -71,65 +91,77 @@ var socialApp = {
             // insert images
             if (item.images) {
                 $.each(item.images, function(i, item) {
-                    var imageTmpl = '<div class="image-post"><img src="' + item.image + '"></div>';
+                    var postImg = '<a href="#" class="img-large"><img src="' + item.image + '"></a>';
+                    var imageTmpl = '<div class="image-post">' + postImg + '</div>';
                     var addImage = $('.image-post-wrapper').append(imageTmpl);
                     $('.all-posts').append(addImage);
+                    socialApp.imageModal(postImg, postTmpl);
                 });
             }
         });
+
     },
 
-    showComments: function() {
-        var comments = $('.comments-wrapper');
-        var replyDiv = '<div class="reply-comment"><input type="text" placeholder="Reply..." class="reply"></div>';
-
-        $('.comments-text a').on('click', function(e) {
-            e.preventDefault();
-            // $(comments).toggle(function(){
-            //     $(replyDiv).show();
-            // },
-            // function() {
-            //     $(replyDiv).hide();
-            // });
+    expandComments: function() {
+        var expand = '<a id="expand" href = "#"> Expand <span class = "sprite-main sprite-caret-down"> </span></a>';
+        // var collapse = '<a id="collapse" href = "#"> Collapse <span class = "sprite-main sprite-caret-up"> </span></a>';
+        var replyDiv = $('<div class="reply-comment"><input type="text" placeholder="Reply..." class="reply"></div>');
+        var commentText = $('.comments-text');
 
 
-            $(comments).toggle();
-            // if ($(comments).length) {
-                    if ($(replyDiv).length === 0) {
-                        $(comments).append(replyDiv);
-                    } 
-                // }
+        $('.comments-text a').click(function() {
+            if ($(this).hasClass('expand')) {
+                $(this).removeClass('expand').addClass('collapse');
+                $('.comments-wrapper').show()
 
+                if(!$('#reply-wrapper').length) {
+                    $('.comments-wrapper').append('<div id="reply-wrapper"></div>');
+                    $('#reply-wrapper').html(replyDiv);
+                }
+
+                $('.sprite-main').removeClass('sprite-caret-down').addClass('sprite-caret-up')
+            } else {
+                $(this).removeClass('collapse').addClass('expand');
+                $('.sprite-main').removeClass('sprite-caret-up').addClass('sprite-caret-down')
+                $('.comments-wrapper').hide();
+            }
+            return false;
         });
     },
 
     callModal: function() {
         $('.chat-icon a').click(function(e) {
             socialApp.insertModal();
-            $('html, body').scrollTop(0);
-            $('.container, footer').addClass('blur');
-            // $('.modal, .modal-dialog').show();
             e.preventDefault();
         });
     },
 
     insertModal: function() {
         $.get('partial/modal.html', function(data) {
+            $('html, body').scrollTop(0);
+            $('.container, footer').addClass('blur');
             $('#modal-wrapper').append(data);
             socialApp.removeModal();
         });
     },
 
-     removeModal: function() {
+    removeModal: function() {
         $('.close-modal').on('click', function(e) {
             $('#modal-wrapper').empty();
             $('.container, footer').removeClass('blur');
-
-            // $('.modal, .modal-dialog').hide();
             e.preventDefault();
         });
+    },
 
-           
+    imageModal: function(img, postTmpl) {
+        $('.img-large').on('click', function(e) {
+            $('html, body').scrollTop(0);
+            $('.container, footer').addClass('blur');
+            $('#img-wrapper')
+                .html('<div class="img-bg"><div class="img-content">' + img + '</div></div>');
+            $('.post-details').append(postTmpl);
+            e.preventDefault();
+        });
     },
 
     updateSettings: function(data) {

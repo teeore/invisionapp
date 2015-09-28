@@ -12,24 +12,6 @@
     }
 }
 
-%setting-toggles {
-    span {
-        cursor: pointer;
-        display: inline-block;
-        position: absolute;
-        margin-top: 7px;
-    }
-    p {
-        display: inline-block;
-        font-size: 16px;
-        color: #8A8989;
-        margin-left: 83px;
-    }
-    li {
-        line-height: 15px;
-    }
-}
-
 .settings {
     &-account {
         height: 210px;

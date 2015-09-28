@@ -3,8 +3,7 @@ Variables
 *********************/
 
 $light-gray: 1px solid #ECECEC;
-$font-stack: "Open Sans",
-sans-serif;
+$font-stack: "Open Sans", sans-serif;
 $main-color: #444;
 $tablet-width: 768px;
 $desktop-width: 1024px;
@@ -69,6 +68,51 @@ Mixins
     -ms-filter: blur($val);
     filter: blur($val);
     opacity: $opacity;
+}
+
+/*********************
+Placeholders
+*********************/
+
+%site-btns {
+    background-color: $green;
+    @include border-radius(4px);
+    font-size: 14px;
+    margin-top: 4px;
+    display: inline-block;
+    padding: 6px 25px;
+    color: #fff;
+    text-decoration: none;
+}
+
+%no-outline {
+    outline: none;
+}
+
+%footer-text {
+    float: left;
+    text-transform: uppercase;
+    padding: 5px 20px;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+%setting-toggles {
+    span {
+        cursor: pointer;
+        display: inline-block;
+        position: absolute;
+        margin-top: 7px;
+    }
+    p {
+        display: inline-block;
+        font-size: 16px;
+        color: #8A8989;
+        margin-left: 83px;
+    }
+    li {
+        line-height: 15px;
+    }
 }
 
 

@@ -134,9 +134,7 @@ module.exports = function(grunt) {
             },
             sass: {
               src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
-              ignorePath: /^(\.\.\/)+/,
-              devDependencies: true,
-              dependencies: true
+              ignorePath: /^(\.\.\/)+/
             }
         },
 

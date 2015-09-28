@@ -17,13 +17,13 @@
     <div class="container">
         <!-- header -->
         <header>
-            <a href="/">
-                <div class="logo">
+            <div class="logo">
+                <a href="/">
                     <span class="sprite-main sprite-logo"></span>
                     <span class="logo-text">simply</span>
                     <span class="logo-text social-text">social</span>
-                </div>
-            </a>
+                </a>
+            </div>
             <div class="header-right">
                 <div class="chat-icon">
                     <a href="#"><span class="sprite-main sprite-chat-icon"></span></a>
@@ -34,7 +34,7 @@
                 </div>
                 <div class="profile-avatar">
                     <!-- insert from json -->
-                    <ul>
+                    <ul class="main-menu">
                         <li><a href="#">Profile</a></li>
                         <li><a href="#">Followers</a></li>
                         <li><a href="#">Following</a></li>
@@ -42,7 +42,10 @@
                     </ul>
                 </div>
             </div>
+            <div class="clear"></div>
+                    <div class="header-below"></div>
         </header>
+
         <!-- hero image -->
         <div class="hero">
             <div class="status">
@@ -65,9 +68,9 @@
         </div>
         <div class="content-tab">
             <ul>
-                <li><a href="#">All Posts</a></li>
-                <li><a href="#">Photos</a></li>
-                <li><a href="#">Videos</a></li>
+                <li id="post-tab"><a href="#">All Posts</a></li>
+                <li id="photos-tab"><a href="#">Photos</a></li>
+                <li id="videos-tab"><a href="#">Videos</a></li>
             </ul>
         </div>
         <!-- page content -->
@@ -83,8 +86,9 @@
         <div class="clear"></div>
     </div>
     <!-- modal window inserted using ajax-->
-<div id="modal-wrapper"></div>
-
+    <div id="modal-wrapper"></div>
+    <div id="img-wrapper"></div>
+    <div class="post-details"></div>
     <footer>
         <div class="footer-inner">
             <ul>
