@@ -1,5 +1,12 @@
 @media (max-width: 600px) {
-.searchbox input {
-  width: 100%;
+    .searchbox input {
+        width: 100%;
+    }
 }
+
+
+@media (max-width: 500px) {
+    .header-right {
+       float: left;
+    }
 }

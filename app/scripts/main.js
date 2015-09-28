@@ -59,15 +59,21 @@ var socialApp = {
                 '<div class="post-msg-wrapper"> <div class="post-name"> ' +
                 item.name + '</div> <div class = "post-msg" >' +
                 item.msg +
-                '</div> </div>';
+                '</div> <div class = "comments-text-wrapper"></div></div>';
             $('.all-posts').append(postTmpl);
 
             // add link to expand comments
             if (item.comments) {
-                var addExpandLink = '<div class = "comments-text"> <a class="expand" href = "#"> Expand' +
-                    '<span class = "sprite-main sprite-caret-down"> </span></a></div>';
-                $('.post-msg-wrapper').append(addExpandLink);
-                socialApp.expandComments();
+                $('.all-posts').append('<div class="comments-wrapper"><div class="comments-text"></div></div>');
+                var expandLink = '<a class="expand" href = "#"> Expand' +
+                    '<span class = "sprite-main sprite-caret-down"> </span></a>';
+                var collapseLink = '<a class="collapse" href = "#"> Collapse' +
+                    '<span class = "sprite-main sprite-caret-up"> </span></a>';
+                   var commentText = $('.comments-text').html(expandLink);
+
+                $('.comments-text-wrapper').html(commentText);
+
+                socialApp.expandComments(expandLink, collapseLink);
 
                 // insert comments
                 $.each(item.comments, function(i, comment) {
@@ -82,46 +88,42 @@ var socialApp = {
                         comment.name + '</div> <div class = "post-msg" >' +
                         comment.msg +
                         '</div> </div>';
-                    var addComments = $('.comments-wrapper').append(commentTmpl);
-                    $('.all-posts').append(addComments);
+
+                    $('.comments-wrapper').append(commentTmpl);
                 });
-            }
+            }  
 
             // insert images
             if (item.images) {
                 $.each(item.images, function(i, item) {
                     var postImg = '<a href="#" class="img-large"><img src="' + item.image + '"></a>';
-                    var imageTmpl = '<div class="image-post">' + postImg + '</div>';
-                    var addImage = $('.image-post-wrapper').append(imageTmpl);
-                    $('.all-posts').append(addImage);
-                    socialApp.imageModal(postImg, postTmpl);
+                    var imageTmpl = '<div class="image-post-wrapper"><div class="image-post">' + postImg + '</div></div>';
+                    // var addImage = $('.image-post-wrapper').append(imageTmpl);
+                    socialApp.imageModal(item, postImg, postTmpl);
+                    $('.all-posts').append(imageTmpl);
+                    
                 });
             }
         });
     },
 
-    expandComments: function() {
-        var expand = '<a id="expand" href = "#"> Expand <span class = "sprite-main sprite-caret-down"> </span></a>';
-        // var collapse = '<a id="collapse" href = "#"> Collapse <span class = "sprite-main sprite-caret-up"> </span></a>';
+    expandComments: function(expandLink, collapseLink) {
         var replyDiv = $('<div class="reply-comment"><input type="text" placeholder="Reply..." class="reply"></div>');
-        var commentText = $('.comments-text');
 
+        $('.comments-text').on('click', 'a.expand', function() {
+            $('.comments-text').html(collapseLink);
+            $('.comments-wrapper').show();
 
-        $('.comments-text a').click(function() {
-            if ($(this).hasClass('expand')) {
-                $(this).removeClass('expand').addClass('collapse');
-                $('.comments-wrapper').show();
-                $('.sprite-main').removeClass('sprite-caret-down').addClass('sprite-caret-up')
-
-                if (!$('#reply-wrapper').length) {
-                    $('.comments-wrapper').append('<div id="reply-wrapper"></div>');
-                    $('#reply-wrapper').html(replyDiv);
-                }
-            } else {
-                $(this).removeClass('collapse').addClass('expand');
-                $('.sprite-main').removeClass('sprite-caret-up').addClass('sprite-caret-down')
-                $('.comments-wrapper').hide();
+            if (!$('#reply-wrapper').length) {
+                $('.comments-wrapper').append('<div id="reply-wrapper"></div>');
+                $('#reply-wrapper').html(replyDiv);
             }
+            return false;
+        });
+
+        $('.comments-text').on('click', 'a.collapse', function() {
+            $('.comments-text').html(expandLink);
+            $('.comments-wrapper').hide();
             return false;
         });
     },
@@ -150,15 +152,18 @@ var socialApp = {
         });
     },
 
-    imageModal: function(img, postTmpl) {
+    imageModal: function(item, img, postTmpl) {
+         $.each(item, function(i, item) {
+            console.log('item is ', item)
         $('.img-large').on('click', function(e) {
             $('html, body').scrollTop(0);
             $('.container, footer').addClass('blur');
             $('#img-wrapper')
-                .html('<div class="img-bg"><div class="img-content">' + img + '<div class="post-details"></div></div></div>');
+                .html('<div class="img-bg"><div class="img-content">' + item.image + '<div class="post-details"></div></div></div>');
             $('.post-details').append(postTmpl);
             e.preventDefault();
         });
+    });
     },
 
     updateSettings: function(data) {
