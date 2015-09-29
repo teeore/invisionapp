@@ -8,8 +8,9 @@
     @extend %modal-dialog;
     transform: translate(-50%, -50%);
     background-color: transparent;
-    top: 18%;
+    top: 25%;
     width: 88%;
+    max-width: 900px;
     .post-details {
         background-color: #FFF;
     }
