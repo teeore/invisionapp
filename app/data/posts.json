@@ -46,11 +46,6 @@
         "avatar": "images/avatar5.jpg",
         "name": "Vitor Leal",
         "msg": "You have to see this bike. It will make your daily commute a absolute joy ride! <a href=\"#\">vimeo.com/p/mV0PUrHRwQ/</a>",
-        "images": [
-            {
-                "image": "images/vid-main.jpg"
-            }
-        ],
         "time": "1h"
     }
 ]
