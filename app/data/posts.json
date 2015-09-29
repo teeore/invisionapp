@@ -23,11 +23,7 @@
         "avatar": "images/avatar2.jpg",
         "name": "Meg Robichaud",
         "msg": "My view this morning is simply beautiful... <br><a href=\"#\">instagram.com/p/mV0PUrHRwQ/</a>",
-        "images": [
-            {
-                "image": "images/img-main.jpg"
-            }
-        ],
+        "image": "images/img-main.jpg",
         "time": "25m"
     },
     {
@@ -46,6 +42,7 @@
         "avatar": "images/avatar5.jpg",
         "name": "Vitor Leal",
         "msg": "You have to see this bike. It will make your daily commute a absolute joy ride! <a href=\"#\">vimeo.com/p/mV0PUrHRwQ/</a>",
+        "image": "images/vid-main.jpg",
         "time": "1h"
     }
 ]
