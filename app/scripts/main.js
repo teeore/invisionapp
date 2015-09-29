@@ -109,8 +109,6 @@ var socialApp = {
                         $('.container, footer').addClass('blur');
                         var src = $(this).find('img').attr("src");
                         var thisPost = $(this).closest('.image-post-wrapper').prev('.posts').clone();
-                        console.log(thisPost)
-                        console.log('src is ', src)
                         $('.imageMain').html('<img src="' +src + '">');
                         $('.post-details').html(thisPost);
                         $('.reply-modal').html(replyDiv);

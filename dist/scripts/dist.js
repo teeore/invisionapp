@@ -96,25 +96,27 @@ var socialApp = {
             }
 
             // insert images
-            if (item.images) {
-                $.each(item.images, function(i, item) {
+            if (item.image) {
+                // $.each(item.images, function(i, item) {
                     var postImg = '<a href="#" class="img-large"><img src="' + item.image + '"></a>';
                     var imageTmpl = '<div class="image-post-wrapper"><div class="image-post">' + postImg + '</div></div>';
                     $('.all-posts').append(imageTmpl);
                     $('.imageMain').html('');
                     
-                    $('a.img-large').on('click', function() {
+                    $('a.img-large').on('click', function(e) {
                         $('#img-wrapper').show();
                         $('html, body').scrollTop(0);
                         $('.container, footer').addClass('blur');
-                        $('.imageMain').html('<img src="' + item.image + '">');
-                        $('.post-details').html(postTmpl);
+                        var src = $(this).find('img').attr("src");
+                        var thisPost = $(this).closest('.image-post-wrapper').prev('.posts').clone();
+                        $('.imageMain').html('<img src="' +src + '">');
+                        $('.post-details').html(thisPost);
                         $('.reply-modal').html(replyDiv);
-                        return false;
+                        e.stopPropagation();
                     });
 
                      socialApp.closeImageModal();
-                });
+                // });
             }
         });
     },
