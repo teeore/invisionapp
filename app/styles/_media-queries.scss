@@ -4,9 +4,14 @@
     }
 }
 
-
 @media (max-width: 500px) {
     .header-right {
-       float: left;
+        float: left;
+        .chat-icon {
+            margin-left: 0;
+        }
+    }
+    .logo {
+        width: 28%;
     }
 }

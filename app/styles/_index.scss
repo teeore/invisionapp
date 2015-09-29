@@ -2,6 +2,10 @@
      width: 100%;
      height: 425px;
      background: transparent url('../images/hero-bg.jpg') no-repeat center center;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
      position: relative;
      margin-top: 60px;
  }
@@ -172,7 +176,7 @@
          float: left;
          margin-top: 13px;
          span {
-         margin-left: 5px;
+             margin-left: 5px;
          }
      }
  }
@@ -184,13 +188,18 @@
      background-color: #f9fafb;
  }
  
- .reply-comment {
-     input {
-         width: 100%;
-         border: 1px solid #E2E2E2;
-         padding: 13px 10px;
-         box-sizing: border-box;
-         @include border-radius(3px);
+ .reply {
+     &-modal {
+         @extend #reply-wrapper;
+     }
+     &-comment {
+         input {
+             width: 100%;
+             border: 1px solid #E2E2E2;
+             padding: 13px 10px;
+             box-sizing: border-box;
+             @include border-radius(3px);
+         }
      }
  }
  
@@ -199,4 +208,8 @@
          width: 600px;
          height: auto;
      }
+ }
+ 
+ #img-wrapper {
+     display: none;
  }

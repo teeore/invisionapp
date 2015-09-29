@@ -48,6 +48,8 @@ var socialApp = {
 
     loadAllPosts: function(data) {
         // load posts
+        var replyDiv = $('<div class="reply-comment"><input type="text" placeholder="Reply..." class="reply"></div>');
+
         $.each(data, function(i, item) {
             var postTmpl = '<div class="posts"><div class="post-icons"><ul> ' +
                 '<a href="#"><li class="sprite-main sprite-reply-icon"></li></a>' +
@@ -69,11 +71,11 @@ var socialApp = {
                     '<span class = "sprite-main sprite-caret-down"> </span></a>';
                 var collapseLink = '<a class="collapse" href = "#"> Collapse' +
                     '<span class = "sprite-main sprite-caret-up"> </span></a>';
-                   var commentText = $('.comments-text').html(expandLink);
+                var commentText = $('.comments-text').html(expandLink);
 
                 $('.comments-text-wrapper').html(commentText);
 
-                socialApp.expandComments(expandLink, collapseLink);
+                socialApp.expandComments(expandLink, collapseLink, replyDiv);
 
                 // insert comments
                 $.each(item.comments, function(i, comment) {
@@ -91,25 +93,33 @@ var socialApp = {
 
                     $('.comments-wrapper').append(commentTmpl);
                 });
-            }  
+            }
 
             // insert images
             if (item.images) {
                 $.each(item.images, function(i, item) {
                     var postImg = '<a href="#" class="img-large"><img src="' + item.image + '"></a>';
                     var imageTmpl = '<div class="image-post-wrapper"><div class="image-post">' + postImg + '</div></div>';
-                    // var addImage = $('.image-post-wrapper').append(imageTmpl);
-                    socialApp.imageModal(item, postImg, postTmpl);
                     $('.all-posts').append(imageTmpl);
+                    $('.imageMain').html('');
                     
+                    $('a.img-large').on('click', function() {
+                        $('#img-wrapper').show();
+                        $('html, body').scrollTop(0);
+                        $('.container, footer').addClass('blur');
+                        $('.imageMain').html('<img src="' + item.image + '">');
+                        $('.post-details').html(postTmpl);
+                        $('.reply-modal').html(replyDiv);
+                        return false;
+                    });
+
+                     socialApp.closeImageModal();
                 });
             }
         });
     },
 
-    expandComments: function(expandLink, collapseLink) {
-        var replyDiv = $('<div class="reply-comment"><input type="text" placeholder="Reply..." class="reply"></div>');
-
+    expandComments: function(expandLink, collapseLink, replyDiv) {
         $('.comments-text').on('click', 'a.expand', function() {
             $('.comments-text').html(collapseLink);
             $('.comments-wrapper').show();
@@ -152,18 +162,12 @@ var socialApp = {
         });
     },
 
-    imageModal: function(item, img, postTmpl) {
-         $.each(item, function(i, item) {
-            console.log('item is ', item)
-        $('.img-large').on('click', function(e) {
-            $('html, body').scrollTop(0);
-            $('.container, footer').addClass('blur');
-            $('#img-wrapper')
-                .html('<div class="img-bg"><div class="img-content">' + item.image + '<div class="post-details"></div></div></div>');
-            $('.post-details').append(postTmpl);
+    closeImageModal: function() {
+        $('#image-modal').on('click', function(e) {
+             $('#img-wrapper').hide();
+            $('.container, footer').removeClass('blur');
             e.preventDefault();
         });
-    });
     },
 
     updateSettings: function(data) {

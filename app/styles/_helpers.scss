@@ -3,10 +3,9 @@ Variables
 *********************/
 
 $light-gray: 1px solid #ECECEC;
-$font-stack: "Open Sans", sans-serif;
+$font-stack: "Open Sans",
+sans-serif;
 $main-color: #444;
-$tablet-width: 768px;
-$desktop-width: 1024px;
 $green: #2faf90;
 
 /*********************
@@ -70,6 +69,7 @@ Mixins
     opacity: $opacity;
 }
 
+
 /*********************
 Placeholders
 *********************/
@@ -116,8 +116,8 @@ Placeholders
 }
 
 %modal {
-     &:before {
-       @extend %modal-bg;
+    &:before {
+        @extend %modal-bg;
     }
     a {
         text-decoration: none;
@@ -125,37 +125,20 @@ Placeholders
 }
 
 %modal-bg {
-     content: "";
-        background: rgba(0, 0, 0, .8);
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 999;
+    content: "";
+    background: rgba(0, 0, 0, .8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
 }
 
 %modal-dialog {
     @include centerdiv;
-        border-radius: 5px;
-        z-index: 9999;
-        background-color: #DEE1E6;
-        box-sizing: border-box;
-}
-
-
-/*********************
-Media Queries
-*********************/
-
-@mixin tablet {
-    @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
-        @content;
-    }
-}
-
-@mixin desktop {
-    @media (min-width: #{$desktop-width}) {
-        @content;
-    }
+    border-radius: 5px;
+    z-index: 9999;
+    background-color: #DEE1E6;
+    box-sizing: border-box;
 }

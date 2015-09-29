@@ -6,8 +6,20 @@
 
 .img-content {
     @extend %modal-dialog;
+    transform: translate(-50%, -80%);
     background-color: transparent;
-    top: 15%;
+    top: 18%;
+    width: 88%;
+    .post-details {
+        background-color: #FFF;
+    }
+}
+
+.imageMain {
+    width: 100%;
+    img {
+        width: 100%;
+    }
 }
 
 .img-wrapper {
@@ -15,7 +27,11 @@
     position: relative;
 }
 
-.post-details {
+.img-large {
+    display: block;
+}
+
+.post-detail-wrapper {
     position: absolute;
     z-index: 9999;
     background-color: #f9fafb;

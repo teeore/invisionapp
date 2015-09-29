@@ -28,13 +28,13 @@
         border-bottom: 1px solid #E2E2E2;
         height: 350px;
         margin-left: 10px;
-         @extend %setting-toggles;
-         p {
+        @extend %setting-toggles;
+        p {
             margin-left: 60px;
-         }
-         span {
+        }
+        span {
             margin-top: 8px;
-         }
+        }
     }
     &-img {
         float: left;
