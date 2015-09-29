@@ -97,26 +97,23 @@ var socialApp = {
 
             // insert images
             if (item.image) {
-                // $.each(item.images, function(i, item) {
-                    var postImg = '<a href="#" class="img-large"><img src="' + item.image + '"></a>';
-                    var imageTmpl = '<div class="image-post-wrapper"><div class="image-post">' + postImg + '</div></div>';
-                    $('.all-posts').append(imageTmpl);
-                    $('.imageMain').html('');
-                    
-                    $('a.img-large').on('click', function(e) {
-                        $('#img-wrapper').show();
-                        $('html, body').scrollTop(0);
-                        $('.container, footer').addClass('blur');
-                        var src = $(this).find('img').attr("src");
-                        var thisPost = $(this).closest('.image-post-wrapper').prev('.posts').clone();
-                        $('.imageMain').html('<img src="' +src + '">');
-                        $('.post-details').html(thisPost);
-                        $('.reply-modal').html(replyDiv);
-                        e.stopPropagation();
-                    });
+                var postImg = '<a href="#" class="img-large"><img src="' + item.image + '"></a>';
+                var imageTmpl = '<div class="image-post-wrapper"><div class="image-post">' + postImg + '</div></div>';
+                $('.all-posts').append(imageTmpl);
 
-                     socialApp.closeImageModal();
-                // });
+                $('a.img-large').on('click', function(e) {
+                    $('#img-wrapper').show();
+                    $('html, body').scrollTop(0);
+                    $('.container, footer').addClass('blur');
+                    var src = $(this).find('img').attr("src");
+                    var thisPost = $(this).closest('.image-post-wrapper').prev('.posts').clone();
+                    $('.imageMain').html('<img src="' + src + '">');
+                    $('.post-details').html(thisPost);
+                    $('.reply-modal').html(replyDiv);
+                    e.stopPropagation();
+                });
+
+                socialApp.closeImageModal();
             }
         });
     },
@@ -166,8 +163,9 @@ var socialApp = {
 
     closeImageModal: function() {
         $('#image-modal').on('click', function(e) {
-             $('#img-wrapper').hide();
+            $('#img-wrapper').hide();
             $('.container, footer').removeClass('blur');
+            $('.imageMain').html('');
             e.preventDefault();
         });
     },
