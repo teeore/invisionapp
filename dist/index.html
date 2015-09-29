@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Invision Web App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- header -->
+        <header>
+            <div class="logo">
+                <a href="/">
+                    <span class="sprite-main sprite-logo"></span>
+                    <span class="logo-text">simply</span>
+                    <span class="logo-text social-text">social</span>
+                </a>
+            </div>
+            <div class="header-right">
+                <div class="chat-icon">
+                    <a href="#"><span class="sprite-main sprite-chat-icon"></span></a>
+                </div>
+                <div class="searchbox">
+                    <input type="text" class="form" id="searchform">
+                    <span class="sprite-main sprite-search-icon"></span>
+                </div>
+                <div class="profile-avatar">
+                    <!-- insert from json -->
+                    <ul class="main-menu">
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Followers</a></li>
+                        <li><a href="#">Following</a></li>
+                        <li><a href="settings.html">Settings</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="header-below"></div>
+        </header>
+        <!-- hero image -->
+        <div class="hero">
+            <div class="status">
+                <input type="text" class="status-msg" placeholder="What's on your mind?">
+                <div class="status-add">
+                    <div class="status-photo">
+                        <a href="#">
+                            <span class="sprite-main sprite-camera-icon"></span>
+                            <span class="add-text">Add Photo</span>
+                        </a>
+                    </div>
+                    <div class="status-video">
+                        <a href="#">
+                            <span class="sprite-main sprite-video-icon"></span>
+                            <span class="add-text">Add Video</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-tab">
+            <ul>
+                <li id="post-tab"><a href="#">All Posts</a></li>
+                <li id="photos-tab"><a href="#">Photos</a></li>
+                <li id="videos-tab"><a href="#">Videos</a></li>
+            </ul>
+        </div>
+        <!-- page content -->
+        <div class="content">
+            <!-- posts -->
+            <div class="all-posts">
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!-- modal window inserted using ajax-->
+    <div id="modal-wrapper"></div>
+    <div id="img-wrapper">
+        <div class="img-bg">
+            <div class="img-content">
+                <a href="#" class="close-modal sprite-other sprite-close-btn" id="image-modal"> </a>
+                <div class="imageMain"></div>
+                <div class="post-detail-wrapper">
+                    <div class="post-details"></div>
+                    <div class="reply-modal"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-inner">
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><span>&copy; </span>2014 SimplySocial</li>
+            </ul>
+        </div>
+    </footer>
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/dist.js"></script>
+</body>
+
+</html>

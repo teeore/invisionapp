@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Invision Web App - Settings</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="/">
+                    <span class="sprite-main sprite-logo"></span>
+                    <span class="logo-text">simply</span>
+                    <span class="logo-text social-text">social</span>
+                </a>
+            </div>
+            <div class="header-right">
+                <div class="chat-icon">
+                    <a href="#"><span class="sprite-main sprite-chat-icon"></span></a>
+                </div>
+                <div class="searchbox">
+                    <input type="text" class="form" id="searchform">
+                    <span class="sprite-main sprite-search-icon"></span>
+                </div>
+                <div class="profile-avatar">
+                    <!-- insert from json -->
+                    <ul class="main-menu">
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Followers</a></li>
+                        <li><a href="#">Following</a></li>
+                        <li><a href="settings.html">Settings</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="content" id="settings-content">
+            <h2>Settings</h2>
+            <h4>Account</h4>
+            <div class="settings-account">
+                <div class="settings-img">
+                    <div class="settings-profile-pic">
+                        <!-- update from profile.json -->
+                    </div>
+                    <a class="change-pic">Change</a>
+                </div>
+                <div class="credentials">
+                    <form id="settings-form">
+                        <span class="sprite-settings sprite-name-icon"></span>
+                        <input type="text" id="settings-name">
+                        <span class="sprite-settings sprite-email-icon"></span>
+                        <input type="email" id="settings-email">
+                        <span class="sprite-settings sprite-pswd-icon" id="pswdIcon"></span>
+                        <input type="password" id="settings-pswd" disabled>
+                        <a id="changePswd" href="">change</a>
+                    </form>
+                </div>
+            </div>
+            <!-- notifications -->
+            <div class="settings-notifications">
+                <h4>Notifications</h4>
+                <ul>
+                    <li>
+                        <span class="sprite-settings sprite-toggle-on"></span>
+                        <p>email me when my posts are marked as favorites</p>
+                    </li>
+                    <li>
+                        <span class="sprite-settings sprite-toggle-on"></span>
+                        <p>email me when I'm mentioned</p>
+                    </li>
+                    <li>
+                        <span class="sprite-settings sprite-toggle-on"></span>
+                        <p>email me when I get a reply</p>
+                    </li>
+                    <li>
+                        <span class="sprite-settings sprite-toggle-on"></span>
+                        <p>email me when someone follows me</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- privacy -->
+            <div class="settings-privacy">
+                <h4>Privacy</h4>
+                <ul>
+                    <li>
+                        <span class="sprite-settings sprite-privacy-on"></span>
+                        <p>allow anyone to tag me</p>
+                    </li>
+                    <li>
+                        <span class="sprite-settings sprite-privacy-on"></span>
+                        <p>only allow people I follow to tag me</p>
+                    </li>
+                    <li>
+                        <span class="sprite-settings sprite-privacy-on"></span>
+                        <p>don't allow anyone to tag me</p>
+                    </li>
+                    <li>
+                        <span class="sprite-settings sprite-privacy-on"></span>
+                        <p>add a location to my posts</p>
+                    </li>
+                    <li>
+                        <span class="sprite-settings sprite-privacy-on"></span>
+                        <p>let others find me by my email address</p>
+                    </li>
+                    <li>
+                        <span class="sprite-settings sprite-privacy-on"></span>
+                        <p>tailor ads based on my information</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- save -->
+            <div class="save-settings">
+                <a href="/" id="resetPage"> Save Changes</a>
+            </div>
+        </div>
+    </div>
+    <!-- modal window inserted using ajax-->
+    <div id="modal-wrapper"></div>
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/dist.js"></script>
+</body>
+
+</html>

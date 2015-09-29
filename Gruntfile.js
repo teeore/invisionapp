@@ -100,7 +100,7 @@ module.exports = function(grunt) {
         eslint: {
             target: [
                 'Gruntfile.js',
-                '<%= config.app %>/scripts/{,*/}*.js',
+                '<%= config.app %>/scripts/**/*.js',
                 '!<%= config.app %>/scripts/vendor/*'
             ]
         },
@@ -137,6 +137,29 @@ module.exports = function(grunt) {
               ignorePath: /^(\.\.\/)+/
             }
         },
+         uglify: {
+            dist: {
+                files: {
+                    'dist/<%= config.dist %>.js': [
+                        'dist/<%= config.dist %>.js'
+                    ]
+                }
+            }
+        },
+
+         concat: {
+            options: {
+                // define a string to put between each file in the concatenated output
+                separator: ';'
+            },
+            dist: {
+                // the files to concatenate
+                src: ['<%= config.app %>/*.js', '<%= config.app %>/**/*.js', '<%= config.app %>/scripts/vendor/**/*.js'],
+                // the location of the resulting JS file
+                dest: 'dist/scripts/<%= config.dist %>.js'
+            }
+        },
+
 
         // Renames files for browser caching purposes
         filerev: {
@@ -170,7 +193,7 @@ module.exports = function(grunt) {
                     '<%= config.dist %>/styles'
                 ]
             },
-            html: ['<%= config.dist %>/{,*/}*.html'],
+            html: ['<%= config.dist %>/**/*.html'],
             css: ['<%= config.dist %>/styles/{,*/}*.css']
         },
 
@@ -197,6 +220,16 @@ module.exports = function(grunt) {
             }
         },
 
+         cssmin: {
+            dist: {
+                files: {
+                    '<%= config.dist %>/styles/main.css': [
+                        '.tmp/styles/{,*/}*.css'
+                    ]
+                }
+            }
+        },
+
         htmlmin: {
             dist: {
                 options: {
@@ -214,7 +247,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: '<%= config.dist %>',
-                    src: '{,*/}*.html',
+                    src: '**/*.html',
                     dest: '<%= config.dist %>'
                 }]
             }
@@ -231,8 +264,9 @@ module.exports = function(grunt) {
                     src: [
                         '*.{ico,png,txt}',
                         'images/{,*/}*.webp',
-                        '{,*/}*.html',
-                        'styles/fonts/{,*/}*.*'
+                        '**/*.html',
+                        'styles/fonts/{,*/}*.*',
+                        'data/*'
                     ]
                 }]
             }
@@ -277,12 +311,12 @@ module.exports = function(grunt) {
         'wiredep',
         // 'useminPrepare',
         'concurrent:dist',
-        // 'concat',
-        // 'cssmin',
+        'concat',
+        'cssmin',
         'uglify',
         'copy:dist',
-        'filerev',
-        // 'usemin',
+        // 'filerev',
+        'usemin',
         // 'htmlmin'
     ]);
 
