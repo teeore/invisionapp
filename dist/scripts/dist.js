@@ -108,8 +108,8 @@ var socialApp = {
                     var src = $(this).find('img').attr("src");
                     var thisPost = $(this).closest('.image-post-wrapper').prev('.posts').clone();
                     $('.imageMain').html('<img src="' + src + '">');
-                    $('.post-details').show().html(thisPost);
-                    $('.reply-modal').show().html(replyDiv);
+                    $('.post-details').html(thisPost);
+                    $('.reply-modal').html(replyDiv);
                     e.stopPropagation();
                 });
 
@@ -166,8 +166,6 @@ var socialApp = {
             $('#img-wrapper').hide();
             $('.container, footer').removeClass('blur');
             $('.imageMain').html('');
-            $('.post-details').html('').hide();
-            $('.reply-modal').html('').hide();
             e.preventDefault();
         });
     },

@@ -166,8 +166,6 @@ var socialApp = {
             $('#img-wrapper').hide();
             $('.container, footer').removeClass('blur');
             $('.imageMain').html('');
-            $('.post-details').html('').hide();
-            $('.reply-modal').html('').hide();
             e.preventDefault();
         });
     },
