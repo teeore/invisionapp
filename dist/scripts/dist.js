@@ -108,8 +108,8 @@ var socialApp = {
                     var src = $(this).find('img').attr("src");
                     var thisPost = $(this).closest('.image-post-wrapper').prev('.posts').clone();
                     $('.imageMain').html('<img src="' + src + '">');
-                    $('.post-details').html(thisPost);
-                    $('.reply-modal').html(replyDiv);
+                    $('.post-details').show().html(thisPost);
+                    $('.reply-modal').show().html(replyDiv);
                     e.stopPropagation();
                 });
 
